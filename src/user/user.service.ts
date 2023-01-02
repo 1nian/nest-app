@@ -9,8 +9,17 @@ export class UserService {
     return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all user`;
+  findAll(name: string) {
+    const info = {
+      admin: [],
+      user: [],
+    };
+    return {
+      code: 200,
+      data: {
+        routers: info[name],
+      },
+    };
   }
 
   findOne(id: number) {

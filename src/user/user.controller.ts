@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -19,20 +20,20 @@ export class UserController {
   create(@Body() body) {
     const adminInfo = {
       name: 'admin',
-      pasword: 'admin123',
+      password: 'admin123',
     };
 
-    const { name, pasword } = body;
+    const { name, password } = body;
 
     console.log(body);
 
     if (adminInfo.name === name) {
-      if (adminInfo.pasword === pasword) {
+      if (adminInfo.password === password) {
         return {
           code: 200,
           msg: '登录成功',
-          token: new Date().getTime(),
           data: {
+            token: new Date().getTime(),
             name,
           },
         };
@@ -52,9 +53,9 @@ export class UserController {
     }
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+  @Get('routers/:name')
+  findAll(@Param('name') name: string) {
+    return this.userService.findAll(name);
   }
 
   @Get(':id')
