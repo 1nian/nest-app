@@ -39,7 +39,7 @@ export class ReptileService {
     const getCosplay = async () => {
       console.log(index);
       const body = await axios
-        .get(`${baseUrl}/Xiuren/Xiuren24469${index ? '_' + index : ''}.html`)
+        .get(`${baseUrl}/Xiuren/Xiuren24510${index ? '_' + index : ''}.html`)
         .then(async (res) => res.data);
 
       const $ = cheeerio.load(body);
@@ -78,7 +78,7 @@ export class ReptileService {
         .then((res) => res.data);
 
       const ws = fs.createWriteStream(
-        path.join(__dirname, '../cos/' + new Date().getTime() + '.jpg'),
+        path.join(__dirname, '../../cos/' + new Date().getTime() + '.jpg'),
       );
 
       ws.write(buffer);
