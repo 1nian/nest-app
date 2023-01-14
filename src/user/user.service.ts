@@ -11,36 +11,19 @@ export class UserService {
     @InjectRepository(User) private readonly user: Repository<User>,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     const data = new User();
     data.username = createUserDto.username;
     data.password = createUserDto.password;
-    return this.user.save(data);
-    // return createUserDto;
-  }
-
-  findAll(name: string) {
-    const info = {
-      admin: [],
-      user: [],
-    };
-    return {
-      code: 200,
-      data: {
-        routers: info[name],
-      },
-    };
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+    const res = await this.user.save(data);
+    if (res.id) {
+      return {
+        token: `${new Date().getTime()}`,
+      };
+    } else {
+      return {
+        token: '',
+      };
+    }
   }
 }
