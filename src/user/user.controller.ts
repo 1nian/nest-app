@@ -16,41 +16,9 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post('login')
-  create(@Body() body) {
-    const adminInfo = {
-      name: 'admin',
-      password: 'admin123',
-    };
-
-    const { name, password } = body;
-
-    console.log(body);
-
-    if (adminInfo.name === name) {
-      if (adminInfo.password === password) {
-        return {
-          code: 200,
-          msg: '登录成功',
-          data: {
-            token: new Date().getTime(),
-            name,
-          },
-        };
-      } else {
-        return {
-          code: 200,
-          data: {},
-          msg: '密码错误',
-        };
-      }
-    } else {
-      return {
-        code: 200,
-        data: {},
-        msg: '用户名错误',
-      };
-    }
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.userService.create(createUserDto);
   }
 
   @Get('routers/:name')
