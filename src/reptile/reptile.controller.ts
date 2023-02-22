@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ReptileService } from './reptile.service';
 import { CreateReptileDto } from './dto/create-reptile.dto';
 import { UpdateReptileDto } from './dto/update-reptile.dto';
@@ -34,6 +42,6 @@ export class ReptileController {
 
   @Get('img')
   getImages() {
-    return this.reptileService.getImages()
+    return this.reptileService.getImages();
   }
 }

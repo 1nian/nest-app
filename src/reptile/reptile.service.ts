@@ -3,7 +3,7 @@ import { CreateReptileDto } from './dto/create-reptile.dto';
 import { UpdateReptileDto } from './dto/update-reptile.dto';
 
 import axios from 'axios';
-import { decode } from 'iconv-lite'
+import { decode } from 'iconv-lite';
 import * as cheeerio from 'cheerio';
 import * as fs from 'fs';
 import * as path from 'path';

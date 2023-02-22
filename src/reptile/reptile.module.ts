@@ -4,6 +4,6 @@ import { ReptileController } from './reptile.controller';
 
 @Module({
   controllers: [ReptileController],
-  providers: [ReptileService]
+  providers: [ReptileService],
 })
 export class ReptileModule {}
