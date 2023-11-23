@@ -23,8 +23,9 @@
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/mapped-types": "*",
+    "@nestjs/mapped-types": "^2.0.4",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^7.1.16",
     "@nestjs/typeorm": "^9.0.1",
     "axios": "^1.2.1",
     "cheerio": "^1.0.0-rc.12",
@@ -36,6 +37,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "svg-captcha": "^1.4.0",
+    "swagger-ui-express": "^5.0.0",
     "typeorm": "^0.3.11"
   },
   "devDependencies": {
